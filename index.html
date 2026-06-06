@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillGap AI — Premium Career Skill Gap Analyzer Case Study</title>
+    <meta name="description" content="Explore SkillGap AI, a futuristic AI-driven career guidance and skill gap analysis platform utilizing NLP, Machine Learning, and interactive dashboards to build personalized roadmaps to career success.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cyberpunk-theme">
+    
+    <!-- Canvas for Neural Network Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Floating Background Gradient Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+                    <path d="M16 2L3 9L16 16L29 9L16 2Z" fill="url(#cyan-grad)" />
+                    <path d="M3 23L16 30L29 23" stroke="url(#cyan-grad)" stroke-width="3" stroke-linecap="round" />
+                    <path d="M3 16L16 23L29 16" stroke="url(#purple-grad)" stroke-width="3" stroke-linecap="round" />
+                    <defs>
+                        <linearGradient id="cyan-grad" x1="3" y1="2" x2="29" y2="30" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#00f2fe" />
+                            <stop offset="1" stop-color="#4facfe" />
+                        </linearGradient>
+                        <linearGradient id="purple-grad" x1="3" y1="16" x2="29" y2="23" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#b927fc" />
+                            <stop offset="1" stop-color="#7000ff" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">SkillGap <span class="logo-accent">AI</span></span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#problem">Problem</a>
+                <a href="#features">Features</a>
+                <a href="#sandbox">Sandbox</a>
+                <a href="#tech-stack">Tech Stack</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#future">Future</a>
+            </nav>
+
+            <div class="header-cta">
+                <a href="#sandbox" class="btn btn-glow">Try Sandbox</a>
+            </div>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main>
+
+        <!-- SECTION 1: OVERVIEW / HERO -->
+        <section id="overview" class="section hero-section reveal">
+            <div class="section-container hero-container">
+                <div class="hero-content">
+                    <div class="badge-container">
+                        <span class="pulse-dot"></span>
+                        <span class="tag-label">V2.4 Live AI Model</span>
+                    </div>
+                    <h1 class="hero-title animate-title">
+                        SkillGap <span class="text-glow-cyan">AI</span>
+                    </h1>
+                    <h2 class="hero-subtitle">
+                        AI-Powered Career Guidance & Skill Gap Analysis Platform
+                    </h2>
+                    <p class="hero-description">
+                        Bridge the gap between academic preparation and active industry demands. SkillGap AI analyzes user resumes with high-performance Natural Language Processing, evaluates readiness levels across diverse domains using Machine Learning, and renders direct actionable roadmaps to secure your target role.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <a href="#features" class="btn btn-primary">
+                            <span>View Features</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                        <a href="#tech-stack" class="btn btn-secondary">
+                            <span>Technology Stack</span>
+                        </a>
+                    </div>
+
+                    <!-- Statistics Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card glass-card">
+                            <div class="stat-value text-glow-cyan">95%</div>
+                            <div class="stat-label">Skill Detection Accuracy</div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-value text-glow-purple">1,000+</div>
+                            <div class="stat-label">Resume Analyses</div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-value text-glow-cyan">50+</div>
+                            <div class="stat-label">Supported Job Roles</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic: Dashboard Preview Mockup -->
+                <div class="hero-graphic-wrapper">
+                    <div class="dashboard-mockup glass-card glow-shadow-cyan">
+                        <div class="dashboard-header">
+                            <div class="window-controls">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="dashboard-title">SkillGap AI — Analysis Console</div>
+                            <div class="status-indicator">
+                                <span class="pulse-dot green-dot"></span>
+                                <span>Core Online</span>
+                            </div>
+                        </div>
+                        <div class="dashboard-body">
+                            <div class="mock-sidebar">
+                                <div class="sidebar-item active">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                                    <span>Console</span>
+                                </div>
+                                <div class="sidebar-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                    <span>Resumes</span>
+                                </div>
+                                <div class="sidebar-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                    <span>History</span>
+                                </div>
+                            </div>
+                            <div class="mock-content">
+                                <div class="mock-header-row">
+                                    <div>
+                                        <h3>Candidate: Alex Rivers</h3>
+                                        <p>Target: <span class="accent-cyan">Full-Stack Engineer</span></p>
+                                    </div>
+                                    <div class="mock-score-badge">
+                                        <span class="score-num">84%</span>
+                                        <span class="score-lbl">Match</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="skills-analyzed">
+                                    <div class="analysis-row">
+                                        <span class="skill-name">React.js & State Management</span>
+                                        <div class="progress-bar-container">
+                                            <div class="progress-fill cyan-fill" style="width: 90%;"></div>
+                                        </div>
+                                        <span class="progress-pct">90%</span>
+                                    </div>
+                                    <div class="analysis-row">
+                                        <span class="skill-name">FastAPI Backend Development</span>
+                                        <div class="progress-bar-container">
+                                            <div class="progress-fill purple-fill" style="width: 75%;"></div>
+                                        </div>
+                                        <span class="progress-pct">75%</span>
+                                    </div>
+                                    <div class="analysis-row">
+                                        <span class="skill-name">System Design & Scalability</span>
+                                        <div class="progress-bar-container">
+                                            <div class="progress-fill warning-fill" style="width: 45%;"></div>
+                                        </div>
+                                        <span class="progress-pct">45%</span>
+                                    </div>
+                                </div>
+
+                                <div class="recommendations-preview">
+                                    <h4>AI Priority Recommendation:</h4>
+                                    <div class="rec-alert glass-card">
+                                        <span class="rec-icon">💡</span>
+                                        <p class="rec-text">Acquire skills in <strong>Docker</strong> containers and basic microservice patterns. Resume lacks keyword matches for scalable container deployment.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: PROBLEM STATEMENT -->
+        <section id="problem" class="section problem-section reveal">
+            <div class="section-container">
+                <div class="section-header centered">
+                    <h2 class="section-title"><span class="text-glow-purple">The Problem</span> Statement</h2>
+                    <p class="section-subtitle">Real-world career navigation issues faced by students and professionals in a fast-paced market.</p>
+                </div>
+
+                <div class="problem-split">
+                    <!-- Left Column: Illustrations & Flowcharts -->
+                    <div class="problem-visuals">
+                        
+                        <!-- Rejected Resume Graphic -->
+                        <div class="rejected-resume-card glass-card">
+                            <div class="rejected-header">
+                                <span class="status-badge status-rejected">ATS REJECTED</span>
+                                <span class="ats-score">ATS Score: <strong>41%</strong></span>
+                            </div>
+                            <div class="rejected-content">
+                                <div class="resume-line title-line"></div>
+                                <div class="resume-line"></div>
+                                <div class="resume-line red-error-line" data-tooltip="Missing critical keyword: 'FastAPI'"></div>
+                                <div class="resume-line"></div>
+                                <div class="resume-line red-error-line" data-tooltip="No cloud deployment experience listed"></div>
+                                <div class="resume-line"></div>
+                            </div>
+                            <div class="rejected-feedback">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff4a4a" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                                <span>Failed automated keywords match checklist for role: <strong>Backend Engineer</strong></span>
+                            </div>
+                        </div>
+
+                        <!-- Confusion Flowchart -->
+                        <div class="flowchart-card glass-card">
+                            <div class="flowchart-title">Traditional Career Iteration Loop</div>
+                            <div class="flowchart-nodes">
+                                <div class="flowchart-node red-glow">Graduate/Jobseeker</div>
+                                <div class="flowchart-arrow">↓</div>
+                                <div class="flowchart-node red-glow">Blind Applications</div>
+                                <div class="flowchart-arrow">↓</div>
+                                <div class="flowchart-node red-glow">ATS Rejection</div>
+                                <div class="flowchart-arrow">↓</div>
+                                <div class="flowchart-node red-glow">No Constructive Feedback</div>
+                                <div class="flowchart-arrow">↓</div>
+                                <div class="flowchart-node red-glow">"Tutorial Hell" / Course Fatigue</div>
+                            </div>
+                        </div>
+
+                        <!-- Stats Blocks -->
+                        <div class="problem-stats-row">
+                            <div class="problem-stat glass-card glow-shadow-purple">
+                                <h3>72%</h3>
+                                <p>Students unaware of required industry technologies</p>
+                            </div>
+                            <div class="problem-stat glass-card glow-shadow-cyan">
+                                <h3>75%+</h3>
+                                <p>ATS rejection rates due to formatting & missing keywords</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Problem Cards -->
+                    <div class="problem-cards-list">
+                        
+                        <div class="problem-item glass-card card-spotlight">
+                            <div class="problem-icon-wrapper red-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            </div>
+                            <div class="problem-text-content">
+                                <h3>High ATS Resume Rejection</h3>
+                                <p>ATS parsers discard resumes failing strict keyword densities or layout parameters. Candidates face immediate algorithmic rejection without ever getting human eyes to evaluate their core skills.</p>
+                            </div>
+                        </div>
+
+                        <div class="problem-item glass-card card-spotlight">
+                            <div class="problem-icon-wrapper purple-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><line x1="6" y1="9" x2="6" y2="21"></line><path d="M9 6h9a3 3 0 0 1 3 3v3"></path></svg>
+                            </div>
+                            <div class="problem-text-content">
+                                <h3>Unknown Core Required Skills</h3>
+                                <p>Job descriptions are filled with corporate jargon. Candidates struggle to separate secondary qualities from critical baseline skills, causing them to apply to roles they are technically unqualified for.</p>
+                            </div>
+                        </div>
+
+                        <div class="problem-item glass-card card-spotlight">
+                            <div class="problem-icon-wrapper cyan-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                            </div>
+                            <div class="problem-text-content">
+                                <h3>Lack of Modern Career Guidance</h3>
+                                <p>Standard institutional career counselling lacks real-time knowledge of technology frameworks. Generic guidance fails to highlight functional technical deficiencies in candidate portfolios.</p>
+                            </div>
+                        </div>
+
+                        <div class="problem-item glass-card card-spotlight">
+                            <div class="problem-icon-wrapper purple-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                            </div>
+                            <div class="problem-text-content">
+                                <h3>Decoupled Industry Trend Awareness</h3>
+                                <p>Rapid advancements in fields like AI engineering and Cloud operations mean that academic curriculums are lagging multiple years behind current stack configurations (e.g. FastAPI, spaCy, Docker).</p>
+                            </div>
+                        </div>
+
+                        <div class="problem-item glass-card card-spotlight">
+                            <div class="problem-icon-wrapper cyan-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                            </div>
+                            <div class="problem-text-content">
+                                <h3>No Structured Learning Roadmaps</h3>
+                                <p>Discovering a skill gap is only half the battle. Jobseekers lack a structured roadmap that maps learning milestones straight to missing resume keywords and specific learning resources.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: FEATURES SECTION -->
+        <section id="features" class="section features-section reveal">
+            <div class="section-container">
+                <div class="section-header centered">
+                    <h2 class="section-title">Futuristic <span class="text-glow-cyan">Platform Features</span></h2>
+                    <p class="section-subtitle">A comprehensive breakdown of the technology integration inside SkillGap AI.</p>
+                </div>
+
+                <div class="features-grid">
+                    
+                    <!-- Card 1: JWT Authentication -->
+                    <div class="feature-card glass-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="feature-icon cyan-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </div>
+                        <h3>JWT Authentication</h3>
+                        <p>Secure, state-less session token management. Enables protected endpoints, isolated history stores, and cross-device synchronization.</p>
+                    </div>
+
+                    <!-- Card 2: Resume Upload & Parsing -->
+                    <div class="feature-card glass-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="feature-icon purple-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        </div>
+                        <h3>Resume Upload & Parsing</h3>
+                        <p>Multi-format document loaders extracting raw text layers from PDF, DOCX, and text profiles while preserving structure and syntax.</p>
+                    </div>
+
+                    <!-- Card 3: AI Skill Extraction -->
+                    <div class="feature-card glass-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="feature-icon cyan-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
+                        </div>
+                        <h3>AI Skill Extraction</h3>
+                        <p>Custom NLP pipeline leveraging spaCy Named Entity Recognition and custom taxonomies to identify hard tools, languages, and methodologies.</p>
+                    </div>
+
+                    <!-- Card 4: Skill Gap Analysis -->
+                    <div class="feature-card glass-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="feature-icon purple-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+                        </div>
+                        <h3>Skill Gap Analysis</h3>
+                        <p>Advanced vector comparison contrasting user profile embeddings with modern target job listings. Isolates exact system deficiencies.</p>
+                    </div>
+
+                    <!-- Card 5: Job Readiness Score -->
+                    <div class="feature-card glass-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="feature-icon cyan-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <h3>Job Readiness Score</h3>
+                        <p>Mathematical scoring model mapping skill importance weightings, giving a robust percentile score of compatibility with current postings.</p>
+                    </div>
+
+                    <!-- Card 6: Learning Recommendations -->
+                    <div class="feature-card glass-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="feature-icon purple-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                        </div>
+                        <h3>Learning Recommendations</h3>
+                        <p>Dynamic pipeline matching missing tools directly with online learning assets, including specific documentation pages and open-source projects.</p>
+                    </div>
+
+                    <!-- Card 7: Analytics Dashboard -->
+                    <div class="feature-card glass-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="feature-icon cyan-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                        </div>
+                        <h3>Analytics Dashboard</h3>
+                        <p>Intuitive telemetry dashboard plotting progression statistics, visual target competency diagrams, and aggregate job market demand.</p>
+                    </div>
+
+                    <!-- Card 8: Resume Improvement -->
+                    <div class="feature-card glass-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="feature-icon purple-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        </div>
+                        <h3>Resume Improvement Suggestions</h3>
+                        <p>Actionable textual recommendations specifying active language improvements, phrasing alterations, and ATS formatting guidelines.</p>
+                    </div>
+
+                    <!-- Card 9: History Tracking -->
+                    <div class="feature-card glass-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="feature-icon cyan-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                        </div>
+                        <h3>History Tracking</h3>
+                        <p>Secure history tables recording historical document parses and roadmap progress, allowing users to watch their readiness score rise over time.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: INTERACTIVE RESUME ANALYZER SANDBOX -->
+        <section id="sandbox" class="section sandbox-section reveal">
+            <div class="section-container">
+                <div class="section-header centered">
+                    <h2 class="section-title"><span class="text-glow-cyan">Interactive Sandbox</span> Simulator</h2>
+                    <p class="section-subtitle">Select a target archetype role and test out the parsing engine live using dummy profiles.</p>
+                </div>
+
+                <div class="sandbox-widget glass-card glow-shadow-purple">
+                    
+                    <!-- Sandbox Control Panel -->
+                    <div class="sandbox-controls">
+                        <div class="role-selector-wrapper">
+                            <label>1. Select Target Job Role</label>
+                            <div class="role-buttons">
+                                <button class="role-btn active" data-role="swe">Software Engineer</button>
+                                <button class="role-btn" data-role="ds">Data Scientist</button>
+                                <button class="role-btn" data-role="devops">DevOps Cloud Engineer</button>
+                            </div>
+                        </div>
+                        
+                        <div class="action-wrapper">
+                            <label>2. Trigger System Scan</label>
+                            <button id="btn-trigger-scan" class="btn btn-glow-purple">Parse Resume & Generate Report</button>
+                        </div>
+                    </div>
+
+                    <!-- Sandbox Display Console split -->
+                    <div class="sandbox-display">
+                        
+                        <!-- Left Column: Scanning Document Animation -->
+                        <div class="document-scanner-panel glass-card">
+                            <div class="scanner-window-header">
+                                <span class="doc-icon">📄</span>
+                                <span class="doc-filename" id="sandbox-filename">alex_rivers_resume.pdf</span>
+                            </div>
+                            <div class="document-container">
+                                <!-- Horizontal neon scanner laser -->
+                                <div class="scanner-laser" id="laser"></div>
+                                
+                                <div class="mock-document-text" id="document-text">
+                                    <!-- Populated dynamically via JS -->
+                                </div>
+                            </div>
+                            
+                            <!-- Parsing Terminal Log Output -->
+                            <div class="terminal-log-output" id="terminal-logs">
+                                <span class="term-line prompt">[SYSTEM]: Ready to initialize. Select role and click Parse.</span>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Interactive Report Panel -->
+                        <div class="analysis-report-panel glass-card">
+                            <div class="report-empty-state" id="report-empty">
+                                <div class="empty-icon-pulse">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="url(#cyan-grad)" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                                </div>
+                                <h3>Analysis Report</h3>
+                                <p>Select a job profile and trigger the engine parser to render live telemetry reports, extracted skill tags, readiness scores, and missing skill suggestions.</p>
+                            </div>
+
+                            <div class="report-active-state hidden" id="report-active">
+                                <div class="report-header-results">
+                                    <div class="score-circular-container">
+                                        <div class="circular-progress">
+                                            <svg width="120" height="120" viewBox="0 0 120 120" class="svg-progress">
+                                                <circle cx="60" cy="60" r="50" class="circle-bg" />
+                                                <circle cx="60" cy="60" r="50" class="circle-fill" id="circular-fill-bar" />
+                                            </svg>
+                                            <div class="score-percent-text" id="score-text">0%</div>
+                                        </div>
+                                        <div class="readiness-label">Job Readiness Score</div>
+                                    </div>
+                                    <div class="score-summary-meta">
+                                        <h3>Match Assessment</h3>
+                                        <h4 id="match-rating" class="text-glow-cyan">Optimizing...</h4>
+                                        <p id="assessment-p">The parsing models have cross-referenced candidate skills against active job listings...</p>
+                                    </div>
+                                </div>
+
+                                <hr class="neon-divider">
+
+                                <!-- Visual Stats Graph (Rendered via Chart.js dynamically) -->
+                                <div class="chart-container">
+                                    <canvas id="sandbox-chart"></canvas>
+                                </div>
+
+                                <hr class="neon-divider">
+
+                                <!-- Extracted vs Missing Skills -->
+                                <div class="skills-comparison-split">
+                                    <div class="skills-block">
+                                        <h4 class="block-title green-text">✔ Extracted Core Skills</h4>
+                                        <div class="pills-container" id="extracted-pills">
+                                            <!-- Dynamically filled -->
+                                        </div>
+                                    </div>
+                                    <div class="skills-block">
+                                        <h4 class="block-title red-text">✘ Missing Target Keywords</h4>
+                                        <div class="pills-container" id="missing-pills">
+                                            <!-- Dynamically filled -->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="neon-divider">
+
+                                <!-- Actionable Roadmap Drawer -->
+                                <div class="personalized-roadmap">
+                                    <h4 class="roadmap-title">🎯 Actionable Resume Roadmap</h4>
+                                    <div class="roadmap-recommendations" id="roadmap-items">
+                                        <!-- Dynamically filled -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: TECHNOLOGIES SECTION -->
+        <section id="tech-stack" class="section tech-section reveal">
+            <div class="section-container">
+                <div class="section-header centered">
+                    <h2 class="section-title">The <span class="text-glow-cyan">Technology Stack</span></h2>
+                    <p class="section-subtitle">Engineered on high-performance frameworks and AI tools inspired by enterprise SaaS design.</p>
+                </div>
+
+                <div class="tech-table-wrapper glass-card glow-shadow-cyan">
+                    
+                    <!-- Floating Design Labels -->
+                    <div class="floating-label tag-ai">AI Powered</div>
+                    <div class="floating-label tag-fastapi">FastAPI Backend</div>
+                    <div class="floating-label tag-ml">ML Integrated</div>
+
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Technologies & Frameworks Utilized</th>
+                                <th>Role in Architecture</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="category-col"><span class="tech-badge badge-blue">Frontend</span></td>
+                                <td class="tech-col">React.js, HTML5, CSS3, Bootstrap 5</td>
+                                <td class="desc-col">Responsive layouts, real-time feedback loops, and high-fidelity stats views.</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td class="category-col"><span class="tech-badge badge-green">Backend</span></td>
+                                <td class="tech-col">FastAPI</td>
+                                <td class="desc-col">Asynchronous API endpoints supporting fast document ingestion streams.</td>
+                            </tr>
+                            <tr>
+                                <td class="category-col"><span class="tech-badge badge-purple">Language</span></td>
+                                <td class="tech-col">Python 3.10+</td>
+                                <td class="desc-col">Base runtime language for all core NLP models, ML classifiers, and pipelines.</td>
+                            </tr>
+                            <tr>
+                                <td class="category-col"><span class="tech-badge badge-cyan">AI / ML</span></td>
+                                <td class="tech-col">Scikit-learn</td>
+                                <td class="desc-col">Job category classification models and TF-IDF similarity vectors.</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td class="category-col"><span class="tech-badge badge-purple">NLP</span></td>
+                                <td class="tech-col">spaCy, NLTK</td>
+                                <td class="desc-col">Custom Named Entity Recognition (NER) pipeline parsing skill structures.</td>
+                            </tr>
+                            <tr>
+                                <td class="category-col"><span class="tech-badge badge-blue">Database</span></td>
+                                <td class="tech-col">PostgreSQL / MySQL</td>
+                                <td class="desc-col">Relational database schemas storing user metrics, roles, and profiles.</td>
+                            </tr>
+                            <tr>
+                                <td class="category-col"><span class="tech-badge badge-cyan">Visualization</span></td>
+                                <td class="tech-col">Chart.js</td>
+                                <td class="desc-col">Renders interactive radar, line, and bar plots on client dashboards.</td>
+                            </tr>
+                            <tr>
+                                <td class="category-col"><span class="tech-badge badge-green">Authentication</span></td>
+                                <td class="tech-col">JWT (JSON Web Tokens)</td>
+                                <td class="desc-col">Secure stateless session management verifying user endpoints.</td>
+                            </tr>
+                            <tr>
+                                <td class="category-col"><span class="tech-badge badge-purple">API Testing</span></td>
+                                <td class="tech-col">Postman</td>
+                                <td class="desc-col">Simulates endpoint requests, validates JSON structures, and benchmarks routes.</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td class="category-col"><span class="tech-badge badge-cyan">Deployment</span></td>
+                                <td class="tech-col">Docker / Render Cloud</td>
+                                <td class="desc-col">Containerized deployment with continuous delivery pipelines on cloud.</td>
+                            </tr>
+                            <tr>
+                                <td class="category-col"><span class="tech-badge badge-blue">Version Control</span></td>
+                                <td class="tech-col">Git & GitHub</td>
+                                <td class="desc-col">Source management, code review tracking, and build verification checks.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: DEVELOPMENT TIMELINE SECTION -->
+        <section id="timeline" class="section timeline-section reveal">
+            <div class="section-container">
+                <div class="section-header centered">
+                    <h2 class="section-title">Development <span class="text-glow-purple">Milestone Timeline</span></h2>
+                    <p class="section-subtitle">Interactive roadmap tracking the creation stages of the SkillGap AI engine. Click milestones to explore details.</p>
+                </div>
+
+                <div class="timeline-container">
+                    
+                    <!-- Timeline Percentage Tracker -->
+                    <div class="timeline-progress-tracker glass-card">
+                        <div class="progress-info">
+                            <span>Global Completion Progress</span>
+                            <strong id="global-progress-value">100%</strong>
+                        </div>
+                        <div class="tracker-progress-bar">
+                            <div class="tracker-progress-fill" id="timeline-indicator-bar" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Vertical Timeline Connector -->
+                    <div class="timeline-vertical-connector">
+                        <div class="timeline-vertical-progress" id="timeline-scroll-fill"></div>
+                    </div>
+
+                    <!-- Timeline Milestones -->
+                    <div class="timeline-milestones">
+                        
+                        <!-- Phase 1 -->
+                        <div class="timeline-item glass-card collapsible-milestone card-spotlight" data-phase="1">
+                            <div class="node-bullet-glow"></div>
+                            <div class="timeline-item-header">
+                                <div class="phase-badge">Phase 01</div>
+                                <h3>Research & Problem Identification</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="timeline-item-summary">
+                                Initial analysis of ATS engines and student career trajectories. Established core taxonomy gaps.
+                            </div>
+                            <div class="timeline-item-details hidden">
+                                <ul>
+                                    <li><strong>Objective:</strong> Map modern recruiter keyword demands.</li>
+                                    <li><strong>Tasks Completed:</strong> Analyzed 500+ job descriptions; benchmarked standard commercial ATS filters; conducted academic reviews on candidate knowledge gaps.</li>
+                                    <li><strong>F1 Score Goal:</strong> Baseline modeling and mapping.</li>
+                                    <li><strong>Completion Rate:</strong> 100%</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Phase 2 -->
+                        <div class="timeline-item glass-card collapsible-milestone card-spotlight" data-phase="2">
+                            <div class="node-bullet-glow"></div>
+                            <div class="timeline-item-header">
+                                <div class="phase-badge">Phase 02</div>
+                                <h3>Resume Parsing Development</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="timeline-item-summary">
+                                Building high-performance PDF/DOCX multi-format document text extraction structures.
+                            </div>
+                            <div class="timeline-item-details hidden">
+                                <ul>
+                                    <li><strong>Objective:</strong> Extract unstructured metadata while preserving formatting segments.</li>
+                                    <li><strong>Tasks Completed:</strong> Constructed regex parsing components; evaluated pdfminer and docx; mapped modular text wrappers.</li>
+                                    <li><strong>Success Metric:</strong> Less than 2% parser character error rate (CER).</li>
+                                    <li><strong>Completion Rate:</strong> 100%</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Phase 3 -->
+                        <div class="timeline-item glass-card collapsible-milestone card-spotlight" data-phase="3">
+                            <div class="node-bullet-glow"></div>
+                            <div class="timeline-item-header">
+                                <div class="phase-badge">Phase 03</div>
+                                <h3>NLP Skill Extraction</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="timeline-item-summary">
+                                Customizing spaCy and training NLP classifiers to isolate candidate technical skills.
+                            </div>
+                            <div class="timeline-item-details hidden">
+                                <ul>
+                                    <li><strong>Objective:</strong> Isolate complex compound keywords (e.g., "CI/CD Pipeline", "Data Science").</li>
+                                    <li><strong>Tasks Completed:</strong> Configured pipeline components in spaCy; integrated customized NER dictionaries; normalized entity matching templates.</li>
+                                    <li><strong>Skill Library Size:</strong> 4,200+ distinct tech keywords tracked.</li>
+                                    <li><strong>Completion Rate:</strong> 100%</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Phase 4 -->
+                        <div class="timeline-item glass-card collapsible-milestone card-spotlight" data-phase="4">
+                            <div class="node-bullet-glow"></div>
+                            <div class="timeline-item-header">
+                                <div class="phase-badge">Phase 04</div>
+                                <h3>ML Model Integration</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="timeline-item-summary">
+                                Constructing vector similarities and TF-IDF classifiers to compute readiness scores.
+                            </div>
+                            <div class="timeline-item-details hidden">
+                                <ul>
+                                    <li><strong>Objective:</strong> Evaluate match accuracy vectors against corporate profiles.</li>
+                                    <li><strong>Tasks Completed:</strong> Implemented Scikit-learn TF-IDF matrix transformations; engineered classification matching formulas.</li>
+                                    <li><strong>Classification Speed:</strong> Average analysis completes in &lt;180ms.</li>
+                                    <li><strong>Completion Rate:</strong> 100%</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Phase 5 -->
+                        <div class="timeline-item glass-card collapsible-milestone card-spotlight" data-phase="5">
+                            <div class="node-bullet-glow"></div>
+                            <div class="timeline-item-header">
+                                <div class="phase-badge">Phase 05</div>
+                                <h3>Dashboard & Analytics</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="timeline-item-summary">
+                                Constructing responsive web console panels with beautiful graphical data components.
+                            </div>
+                            <div class="timeline-item-details hidden">
+                                <ul>
+                                    <li><strong>Objective:</strong> Render clear graphical charts showing profile breakdowns.</li>
+                                    <li><strong>Tasks Completed:</strong> Integrated Chart.js visualizations; implemented responsive client consoles; connected API triggers to front-end indicators.</li>
+                                    <li><strong>Telemetry Framework:</strong> Built custom CSS radar overlay.</li>
+                                    <li><strong>Completion Rate:</strong> 100%</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Phase 6 -->
+                        <div class="timeline-item glass-card collapsible-milestone card-spotlight" data-phase="6">
+                            <div class="node-bullet-glow"></div>
+                            <div class="timeline-item-header">
+                                <div class="phase-badge">Phase 06</div>
+                                <h3>Authentication System</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="timeline-item-summary">
+                                Implementing secure JWT authentication pipelines and Postgres user relational models.
+                            </div>
+                            <div class="timeline-item-details hidden">
+                                <ul>
+                                    <li><strong>Objective:</strong> Protect user databases, session directories, and historical charts.</li>
+                                    <li><strong>Tasks Completed:</strong> Enabled secure hash token algorithms (HS256); created auth decorators; implemented DB tables.</li>
+                                    <li><strong>Security Score:</strong> Confirms SSL/TLS baseline standard compliance.</li>
+                                    <li><strong>Completion Rate:</strong> 100%</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Phase 7 -->
+                        <div class="timeline-item glass-card collapsible-milestone card-spotlight" data-phase="7">
+                            <div class="node-bullet-glow"></div>
+                            <div class="timeline-item-header">
+                                <div class="phase-badge">Phase 07</div>
+                                <h3>Deployment & Testing</h3>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                            <div class="timeline-item-summary">
+                                Containerizing applications, building CI/CD scripts, and deploying live on Render.
+                            </div>
+                            <div class="timeline-item-details hidden">
+                                <ul>
+                                    <li><strong>Objective:</strong> Deploy isolated development containers.</li>
+                                    <li><strong>Tasks Completed:</strong> Configured Dockerfiles and multi-stage container assets; automated GitHub Actions workflow; published production instance on Render Cloud.</li>
+                                    <li><strong>Deploy Status:</strong> Live and operational.</li>
+                                    <li><strong>Completion Rate:</strong> 100%</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: FUTURE SCOPE SECTION -->
+        <section id="future" class="section future-section reveal">
+            <div class="section-container">
+                <div class="section-header centered">
+                    <h2 class="section-title">Future <span class="text-glow-cyan">Expansion Scope</span></h2>
+                    <p class="section-subtitle">Roadmap features on the horizon for SkillGap AI, incorporating deep intelligence and real-time feeds.</p>
+                </div>
+
+                <div class="future-grid">
+                    
+                    <!-- Card 1: AI Interview Prep -->
+                    <div class="future-card glass-card card-spotlight">
+                        <div class="hologram-effect"></div>
+                        <div class="future-icon cyan-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                        <h3>AI Interview Preparation</h3>
+                        <p>Generates mock technical interviews directly tailored to address identified skill gaps. Tracks speech pace, content correctness, and code efficiency.</p>
+                        <span class="future-badge">Coming Q1 2027</span>
+                    </div>
+
+                    <!-- Card 2: LinkedIn Analyzer -->
+                    <div class="future-card glass-card card-spotlight">
+                        <div class="hologram-effect"></div>
+                        <div class="future-icon purple-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </div>
+                        <h3>LinkedIn Profile Analyzer</h3>
+                        <p>A web browser extension that instantly maps your public LinkedIn profile against live role descriptions, indicating skill gaps on the fly.</p>
+                        <span class="future-badge">Coming Q2 2027</span>
+                    </div>
+
+                    <!-- Card 3: Real-Time Trends -->
+                    <div class="future-card glass-card card-spotlight">
+                        <div class="hologram-effect"></div>
+                        <div class="future-icon cyan-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 6l-9.5 9.5-5-5L1 18"></path><polyline points="17 6 23 6 23 12"></polyline></svg>
+                        </div>
+                        <h3>Real-Time Job Market Trends</h3>
+                        <p>Continuous data ingestion scraping job boards, dynamically updating the taxonomy engine as emerging tech (like LLM Agents) becomes popular.</p>
+                        <span class="future-badge">Coming Q3 2027</span>
+                    </div>
+
+                    <!-- Card 4: Personalized AI Mentor -->
+                    <div class="future-card glass-card card-spotlight">
+                        <div class="hologram-effect"></div>
+                        <div class="future-icon purple-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <h3>Personalized AI Mentor</h3>
+                        <p>Interactive career advisor trained to answer technical programming questions, provide structural advice, and review GitHub portfolios.</p>
+                        <span class="future-badge">Coming Q4 2027</span>
+                    </div>
+
+                    <!-- Card 5: Multi-language Resume Analysis -->
+                    <div class="future-card glass-card card-spotlight">
+                        <div class="hologram-effect"></div>
+                        <div class="future-icon cyan-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 0 1 9-9"></path></svg>
+                        </div>
+                        <h3>Multi-language Resume Analysis</h3>
+                        <p>Leveraging multi-lingual LLMs to parse and analyze resumes in French, Spanish, German, Japanese, and diverse non-English formats.</p>
+                        <span class="future-badge">Coming Q1 2028</span>
+                    </div>
+
+                    <!-- Card 6: AI Chatbot Career Assistant -->
+                    <div class="future-card glass-card card-spotlight">
+                        <div class="hologram-effect"></div>
+                        <div class="future-icon purple-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-7.3 16.8L3 21l4.2-1.7A10 10 0 1 0 12 2z"></path></svg>
+                        </div>
+                        <h3>AI Chatbot Career Assistant</h3>
+                        <p>24/7 intelligent agent resolving application blockages, generating cover letters, and automating daily job matching schedules.</p>
+                        <span class="future-badge">Coming Q2 2028</span>
+                    </div>
+
+                    <!-- Card 7: Company Benchmarking -->
+                    <div class="future-card glass-card card-spotlight">
+                        <div class="hologram-effect"></div>
+                        <div class="future-icon cyan-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        </div>
+                        <h3>Company-wise Benchmarking</h3>
+                        <p>Direct comparisons against internal employee benchmarks at tier-1 corporations (e.g. matching an Uber Software Engineer II archetype).</p>
+                        <span class="future-badge">Coming Q3 2028</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-branding">
+                <div class="logo">
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 2L3 9L16 16L29 9L16 2Z" fill="#00f2fe" />
+                        <path d="M3 23L16 30L29 23" stroke="#00f2fe" stroke-width="3" stroke-linecap="round" />
+                        <path d="M3 16L16 23L29 16" stroke="#b927fc" stroke-width="3" stroke-linecap="round" />
+                    </svg>
+                    <span class="logo-text">SkillGap <span class="logo-accent">AI</span></span>
+                </div>
+                <p>AI-Powered Career Guidance & Skill Gap Analysis Platform.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Overview</h4>
+                    <a href="#overview">Main Showcase</a>
+                    <a href="#problem">Problem Statement</a>
+                    <a href="#features">Platform Features</a>
+                </div>
+                <div class="link-group">
+                    <h4>Product</h4>
+                    <a href="#sandbox">Interactive Sandbox</a>
+                    <a href="#tech-stack">Technology Stack</a>
+                    <a href="#timeline">Development Timeline</a>
+                </div>
+                <div class="link-group">
+                    <h4>Future</h4>
+                    <a href="#future">Expansion Scope</a>
+                    <a href="https://github.com" target="_blank">Git Repository</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkillGap AI. Premium Case Study Portfolio Section. Designed with high-performance dark glassmorphism.</p>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Code -->
+    <script src="app.js"></script>
+</body>
+</html>

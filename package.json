@@ -1,0 +1,20 @@
+{
+  "name": "skillgap-ai-showcase",
+  "version": "1.0.0",
+  "description": "Premium project showcase case study webpage for SkillGap AI",
+  "main": "index.html",
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "keywords": [
+    "SkillGap",
+    "AI",
+    "Showcase",
+    "Portfolio"
+  ],
+  "author": "SkillGap AI Team",
+  "license": "MIT",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
